@@ -7,6 +7,12 @@ app = Flask(__name__)
 grid = []
 
 @app.route('/')
+def home():
+    global grid
+
+    return render_template('index.html')
+
+@app.route('/generate')
 def generate():
     global grid
     level=request.args.get('level', default=1, type=int)

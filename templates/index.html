@@ -109,14 +109,15 @@
   <body>
 
     <div class="container" align="center">
-    
+      
       <h1> {{level}} Sudoku Board </h1>
       <div id = "outer">
-        <h2 class="inner"><a href="/?level=1">Easy</a></h2>
-        <h2 class="inner"><a href="/?level=2">Medium</a></h2>
-        <h2 class="inner"><a href="/?level=3">Hard</a></h2>
-        <h2 class="inner"><a href="/?level=4">Insane</a></h2>
+        <h2 class="inner"><a href="/generate?level=1">Easy</a></h2>
+        <h2 class="inner"><a href="/generate?level=2">Medium</a></h2>
+        <h2 class="inner"><a href="/generate?level=3">Hard</a></h2>
+        <h2 class="inner"><a href="/generate?level=4">Insane</a></h2>
       </div>
+      {% if request.path != '/' %}
       <table id="grid" align="center">
         {% for row in range(0,9) %}
         <tr>
@@ -141,6 +142,7 @@
         </form>
       </div>
 
+      {% endif %}
       
     </div>
 
