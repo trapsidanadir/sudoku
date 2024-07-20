@@ -1,0 +1,11 @@
+version: 1.0
+runtime: python3
+build:
+  commands:
+    - pip install -r requirements.txt
+    - pip install gunicorn uvicorn
+run:
+  runtime-version: 3.8
+  command: gunicorn --bind :8080 --timeout 600 --preload -k uvicorn.workers.UvicornWorker --access-logfile - app:app
+  network:
+    port: 8080
